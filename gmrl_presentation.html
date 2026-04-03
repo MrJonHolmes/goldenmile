@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Mile Racing Ltd — Chelmsford City Racecourse</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green-dark: #355246;
+  --green-mid: #263e34;
+  --cream: #f7f4eb;
+  --copper: #cc8e72;
+  --white: #ffffff;
+  --green-tint: #8aab9c;
+  --copper-tint: #e3c4b2;
+  --text-on-light: #355246;
+  --text-on-dark: #f7f4eb;
+  --text-body-light: #4a6b5c;
+  --text-muted: #7a8e84;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Jost', 'Century Gothic', 'Futura', sans-serif;
+  --slide-width: 1440px;
+  --slide-height: 810px;
+  --footer-height: 36px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #1a1a1a;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+  gap: 40px;
+}
+
+.slide {
+  width: var(--slide-width);
+  height: var(--slide-height);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+}
+
+/* Navigation */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+  background: var(--green-mid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  z-index: 1000;
+  padding: 0 20px;
+}
+
+.nav-bar a {
+  color: var(--copper);
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 3px;
+  transition: background 0.2s;
+}
+
+.nav-bar a:hover {
+  background: rgba(204, 142, 114, 0.12);
+}
+
+body { padding-top: 84px; }
+
+/* Footer */
+.slide-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--footer-height);
+  background: var(--green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.slide-footer .confidential {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+
+.slide-footer .entity {
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--green-tint);
+}
+
+/* ============================================
+   PATTERN A — Full-bleed Dark (Title/Closing)
+   ============================================ */
+.slide-dark {
+  background: var(--green-dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px;
+}
+
+.slide-dark h1 {
+  font-family: var(--font-display);
+  font-size: 52px;
+  font-weight: 400;
+  color: var(--copper);
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.slide-dark h2 {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+
+.slide-dark .accent-line {
+  width: 60px;
+  height: 2px;
+  background: var(--copper);
+  margin: 24px auto;
+}
+
+.slide-dark p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--green-tint);
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+/* ============================================
+   PATTERN D — Data / Content Slide (Cream bg)
+   ============================================ */
+.slide-content {
+  background: var(--cream);
+  padding: 56px 64px 52px;
+}
+
+.slide-content .slide-number {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 8px;
+}
+
+.slide-content h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--copper);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.slide-content .sub-header {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 28px;
+}
+
+.slide-content p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-body-light);
+  line-height: 1.65;
+  max-width: 680px;
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   PATTERN E — Dark Content Slide
+   ============================================ */
+.slide-dark-content {
+  background: var(--green-dark);
+  padding: 56px 64px 52px;
+}
+
+.slide-dark-content .slide-number {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 8px;
+}
+
+.slide-dark-content h2 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--copper);
+  letter-spacing: -0.5px;
+  margin-bottom: 6px;
+}
+
+.slide-dark-content .sub-header {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--green-tint);
+  margin-bottom: 28px;
+}
+
+.slide-dark-content p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-on-dark);
+  line-height: 1.65;
+  max-width: 680px;
+  margin-bottom: 16px;
+}
+
+/* ============================================
+   Stat blocks
+   ============================================ */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 24px;
+  margin-bottom: 20px;
+}
+
+.stat-block {
+  background: var(--green-dark);
+  border-radius: 4px;
+  padding: 22px 20px;
+  text-align: left;
+}
+
+.stat-block .stat-number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--copper);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.stat-block .stat-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+  line-height: 1.4;
+}
+
+/* Light stat blocks (on dark bg) */
+.stat-block-light {
+  background: rgba(247, 244, 235, 0.08);
+  border-left: 3px solid var(--copper);
+  border-radius: 4px;
+  padding: 22px 20px;
+  text-align: left;
+}
+
+.stat-block-light .stat-number {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--copper);
+  line-height: 1.1;
+  margin-bottom: 6px;
+}
+
+.stat-block-light .stat-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--cream);
+  line-height: 1.4;
+}
+
+/* ============================================
+   Cards
+   ============================================ */
+.cards-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.cards-grid-3 { grid-template-columns: repeat(3, 1fr); }
+.cards-grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.card {
+  background: var(--white);
+  border-left: 3px solid var(--copper);
+  border-radius: 4px;
+  padding: 20px 22px;
+}
+
+.card-dark {
+  background: rgba(247, 244, 235, 0.06);
+  border-left: 3px solid var(--copper);
+  border-radius: 4px;
+  padding: 20px 22px;
+}
+
+.card h3, .card-dark h3 {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.card h3 { color: var(--green-dark); }
+.card-dark h3 { color: var(--copper); }
+
+.card h4 {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--copper);
+  margin-bottom: 4px;
+}
+
+.card p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.55;
+  margin-bottom: 0;
+}
+
+.card p { color: var(--text-body-light); }
+.card-dark p { color: var(--cream); font-size: 13px; line-height: 1.55; }
+
+/* ============================================
+   Structure diagram
+   ============================================ */
+.structure-diagram {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-top: 20px;
+}
+
+.structure-row {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.structure-box {
+  border-radius: 4px;
+  padding: 16px 24px;
+  text-align: center;
+  min-width: 180px;
+}
+
+.structure-box-primary {
+  background: var(--green-dark);
+  border: 2px solid var(--copper);
+}
+
+.structure-box-primary .box-title {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--copper);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.structure-box-primary .box-desc {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--cream);
+  margin-top: 4px;
+}
+
+.structure-box-secondary {
+  background: var(--white);
+  border: 1px solid #d4d6c8;
+}
+
+.structure-box-secondary .box-title {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-dark);
+  letter-spacing: 0.5px;
+}
+
+.structure-box-secondary .box-desc {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.structure-box-muted {
+  background: #eae6dc;
+  border: 1px dashed var(--text-muted);
+}
+
+.structure-box-muted .box-title {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.structure-box-muted .box-desc {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.connector-line {
+  width: 2px;
+  height: 20px;
+  background: var(--copper);
+  margin: 0 auto;
+}
+
+.connector-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+  padding-top: 0;
+}
+
+.connector-horizontal {
+  height: 2px;
+  background: var(--copper);
+  position: absolute;
+  top: 0;
+}
+
+/* ============================================
+   Comparison table
+   ============================================ */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+}
+
+.comparison-table thead th {
+  background: var(--green-dark);
+  color: var(--cream);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 12px 16px;
+  text-align: left;
+}
+
+.comparison-table thead th:first-child {
+  border-radius: 4px 0 0 0;
+}
+
+.comparison-table thead th:last-child {
+  border-radius: 0 4px 0 0;
+}
+
+.comparison-table tbody td {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-body-light);
+  padding: 11px 16px;
+  border-bottom: 1px solid #e0ddd4;
+  line-height: 1.45;
+}
+
+.comparison-table tbody tr:nth-child(even) td {
+  background: var(--white);
+}
+
+.comparison-table tbody tr:nth-child(odd) td {
+  background: var(--cream);
+}
+
+.comparison-table .highlight-cell {
+  color: var(--green-dark);
+  font-weight: 600;
+}
+
+/* ============================================
+   Callout box
+   ============================================ */
+.callout {
+  background: var(--green-dark);
+  border-left: 4px solid var(--copper);
+  border-radius: 4px;
+  padding: 18px 24px;
+  margin-top: 20px;
+}
+
+.callout-light {
+  background: var(--white);
+  border-left: 4px solid var(--copper);
+  border-radius: 4px;
+  padding: 18px 24px;
+  margin-top: 20px;
+}
+
+.callout .callout-label, .callout-light .callout-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--copper);
+  margin-bottom: 6px;
+}
+
+.callout p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.callout-light p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-body-light);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   Bullet points (minimal use)
+   ============================================ */
+.slide-bullets {
+  list-style: none;
+  padding: 0;
+  margin-top: 12px;
+}
+
+.slide-bullets li {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  padding: 6px 0 6px 20px;
+  position: relative;
+}
+
+.slide-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 13px;
+  width: 8px;
+  height: 2px;
+  background: var(--copper);
+}
+
+.slide-bullets.light li { color: var(--text-body-light); }
+.slide-bullets.dark li { color: var(--cream); }
+
+/* ============================================
+   Two-column layout
+   ============================================ */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.col-divider {
+  width: 1px;
+  background: var(--copper-tint);
+}
+
+/* ============================================
+   Tag / Label
+   ============================================ */
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-bottom: 6px;
+}
+
+.tag-copper { background: var(--copper); color: var(--white); }
+.tag-green { background: var(--green-tint); color: var(--green-dark); }
+
+/* Growth item */
+.growth-item {
+  margin-bottom: 18px;
+}
+
+.growth-item h4 {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-dark);
+  margin-bottom: 4px;
+}
+
+.growth-item p {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-body-light);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+/* ============================================
+   RESPONSIVE — Tablet (<1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .slide {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+  }
+
+  .slide-content,
+  .slide-dark-content {
+    padding: 40px 32px 52px;
+  }
+
+  .slide-dark {
+    padding: 60px 32px;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cards-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .cards-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .comparison-table {
+    font-size: 12px;
+  }
+
+  .structure-row {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .structure-box {
+    min-width: 140px;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  body {
+    padding-top: 80px;
+    gap: 24px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — Mobile (<640px)
+   ============================================ */
+@media (max-width: 640px) {
+  body {
+    padding-top: 70px;
+    gap: 16px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .slide {
+    width: 100%;
+    height: auto;
+    min-height: auto;
+    overflow: visible;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    border-radius: 0;
+  }
+
+  .slide-content,
+  .slide-dark-content {
+    padding: 28px 20px 48px;
+  }
+
+  .slide-dark {
+    padding: 48px 20px;
+  }
+
+  .slide-content h2,
+  .slide-dark-content h2 {
+    font-size: 26px;
+  }
+
+  .slide-dark h1 {
+    font-size: 32px;
+  }
+
+  .slide-dark h2 {
+    font-size: 13px;
+  }
+
+  .slide-content p,
+  .slide-dark-content p {
+    font-size: 14px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .stat-block,
+  .stat-block-light {
+    padding: 16px 14px;
+  }
+
+  .stat-block .stat-number,
+  .stat-block-light .stat-number {
+    font-size: 24px;
+  }
+
+  .stat-block .stat-label,
+  .stat-block-light .stat-label {
+    font-size: 9px;
+  }
+
+  .cards-grid-3,
+  .cards-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .card, .card-dark {
+    padding: 16px 16px;
+  }
+
+  .card h3, .card-dark h3 {
+    font-size: 12px;
+  }
+
+  .card p, .card-dark p {
+    font-size: 13px;
+  }
+
+  .two-col {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .structure-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .structure-box {
+    min-width: 100%;
+    padding: 12px 16px;
+  }
+
+  .connector-line {
+    height: 14px;
+  }
+
+  .callout, .callout-light {
+    padding: 14px 16px;
+  }
+
+  .callout p, .callout-light p {
+    font-size: 13px;
+  }
+
+  .slide-footer {
+    padding: 0 16px;
+    height: 30px;
+  }
+
+  .slide-footer .confidential,
+  .slide-footer .entity {
+    font-size: 8px;
+  }
+
+  .nav-bar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 6px 10px;
+    gap: 4px;
+  }
+
+  .nav-bar a {
+    font-size: 8px;
+    letter-spacing: 1px;
+    padding: 4px 6px;
+  }
+
+  .comparison-table thead th {
+    font-size: 9px;
+    padding: 8px 8px;
+    letter-spacing: 1px;
+  }
+
+  .comparison-table tbody td {
+    font-size: 11px;
+    padding: 8px 8px;
+  }
+
+  .slide-bullets li {
+    font-size: 13px;
+    padding-left: 16px;
+  }
+
+  .growth-item h4 {
+    font-size: 13px;
+  }
+
+  .growth-item p {
+    font-size: 12px;
+  }
+
+  .tag {
+    font-size: 8px;
+  }
+
+  .slide-content .slide-number,
+  .slide-dark-content .slide-number {
+    font-size: 10px;
+  }
+
+  .slide-content .sub-header,
+  .slide-dark-content .sub-header {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================
+     NAVIGATION
+     ============================================ -->
+<nav class="nav-bar">
+  <a href="#slide-1">Title</a>
+  <a href="#slide-2">Racecourse</a>
+  <a href="#slide-3">Structure</a>
+  <a href="#slide-4">Board</a>
+  <a href="#slide-5">Business Model</a>
+  <a href="#slide-6">Achievements</a>
+  <a href="#slide-7">Creditors</a>
+  <a href="#slide-8">Future</a>
+  <a href="#slide-9">Growth</a>
+  <a href="#slide-10">Next Steps</a>
+</nav>
+
+<!-- ============================================
+     SLIDE 1 — TITLE (Pattern A)
+     ============================================ -->
+<div class="slide slide-dark" id="slide-1">
+  <div class="accent-line"></div>
+  <h2>Chelmsford City Racecourse</h2>
+  <h1>Golden Mile Racing Ltd</h1>
+  <div class="accent-line"></div>
+  <p>A new operator for Britain's best-attended all-weather racecourse</p>
+  <p style="margin-top: 24px; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--copper);">April 2026</p>
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+<!-- ============================================
+     SLIDE 2 — THE RACECOURSE (Pattern D)
+     ============================================ -->
+<div class="slide slide-content" id="slide-2">
+  <div class="slide-number">01</div>
+  <h2>The Racecourse</h2>
+  <div class="sub-header">Britain's best-attended all-weather track</div>
+
+  <p>No new racecourse had opened in Britain for 81 years when the venue staged its first meeting in 2008. Chelmsford City Racecourse is a 150-acre, 365-day venue — a conference and events centre that operates year-round, with racing on approximately 40 days a year.</p>
+
+  <div class="stats-grid">
+    <div class="stat-block">
+      <div class="stat-number">£30m+</div>
+      <div class="stat-label">Invested into the<br>racecourse & estate</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">£40m+</div>
+      <div class="stat-label">Prize money<br>distributed since 2015</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">17</div>
+      <div class="stat-label">Individual Group 1<br>winners raced here</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-number">#1</div>
+      <div class="stat-label">Attendance ranking<br>all UK AWT tracks</div>
+    </div>
+  </div>
+
+  <div class="cards-grid cards-grid-3" style="margin-top: 12px;">
+    <div class="card">
+      <h3>Recognition</h3>
+      <p>Four RCA Showcase Awards in 2024 — joint-most in British racing. Top 10 of all 59 UK racecourses for raceday experience (Visit England &amp; RCA, 2023). Winner of the Warmest Welcome Excellence Award.</p>
+    </div>
+    <div class="card">
+      <h3>Racing Excellence</h3>
+      <p>Home to the Queen Charlotte Fillies' Stakes — Britain's most valuable Listed race (£100,000). The Cardinal Stakes offers a direct pathway to Churchill Downs. Wesley Ward chose Chelmsford as his UK base.</p>
+    </div>
+    <div class="card">
+      <h3>Community</h3>
+      <p>Over 200 local charities and community groups benefit from the racecourse every year. A venue that serves Chelmsford and Essex year-round — far more than a racetrack.</p>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+<!-- ============================================
+     SLIDE 3 — CORPORATE STRUCTURE (Pattern D)
+     ============================================ -->
+<div class="slide slide-content" id="slide-3">
+  <div class="slide-number">02</div>
+  <h2>Corporate Structure</h2>
+  <div class="sub-header">A clean separation of racing, venue, and services</div>
+
+  <div class="structure-diagram">
+    <!-- Top row: Freeholder -->
+    <div class="structure-row">
+      <div class="structure-box structure-box-secondary" style="min-width: 280px;">
+        <div class="box-title">CCRL</div>
+        <div class="box-desc">Chelmsford City Racecourse Ltd — Freeholder</div>
+        <div class="box-desc" style="margin-top: 2px;">Owns the venue and all operating assets</div>
+      </div>
+    </div>
+
+    <div class="connector-line"></div>
+
+    <!-- Middle row: Operating entities -->
+    <div class="structure-row">
+      <div class="structure-box structure-box-primary">
+        <div class="box-title">GMRL</div>
+        <div class="box-desc">Racing Operator</div>
+        <div class="box-desc">Secured lease from landlord</div>
+      </div>
+      <div class="structure-box structure-box-secondary">
+        <div class="box-title">CCE</div>
+        <div class="box-desc">Chelmsford City Entertainment</div>
+        <div class="box-desc">F&B, Hospitality, Events</div>
+      </div>
+      <div class="structure-box structure-box-secondary">
+        <div class="box-title">CCM</div>
+        <div class="box-desc">Chelmsford City Management</div>
+        <div class="box-desc">Staffing & Services</div>
+      </div>
+    </div>
+
+    <div style="height: 24px;"></div>
+
+    <!-- Separate: GLEL -->
+    <div class="structure-row">
+      <div class="structure-box structure-box-muted">
+        <div class="box-title">GLEL — In Administration</div>
+        <div class="box-desc">Former licence holder. Separate legal entity.</div>
+        <div class="box-desc">Does not own the racecourse, venue, or operating assets.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-light" style="margin-top: 24px;">
+    <div class="callout-label">Key Point</div>
+    <p>GMRL is a new entity with its own governance, its own funding, and a secured lease from the freeholder. It is not GLEL. GLEL is a tenant entity in administration — it does not own the racecourse, does not operate the venue's food and beverage, hospitality, or events businesses. The entire operational team has been retained — the people who built Chelmsford into Britain's best-attended all-weather track are in place and ready to race.</p>
+  </div>
+
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+<!-- ============================================
+     SLIDE 4 — THE BOARD (Pattern D)
+     ============================================ -->
+<div class="slide slide-content" id="slide-4">
+  <div class="slide-number">03</div>
+  <h2>The Board</h2>
+  <div class="sub-header">Independent governance with industry expertise</div>
+
+  <div class="cards-grid cards-grid-3" style="margin-top: 8px;">
+    <div class="card">
+      <span class="tag tag-copper">Executive</span>
+      <h3>Nathan Holmes</h3>
+      <h4>Commercial Director</h4>
+      <p>At the racecourse since 2019. Responsible for many of Chelmsford's major commercial initiatives. Leading GMRL as a new chapter under new governance.</p>
+    </div>
+    <div class="card">
+      <span class="tag tag-copper">Executive</span>
+      <h3>Neil Graham</h3>
+      <h4>Racing Director</h4>
+      <p>Deep operational knowledge of racecourse management. Responsible for the racing programme, track preparation, and day-to-day racing operations.</p>
+    </div>
+    <div class="card">
+      <span class="tag tag-green">Non-Executive</span>
+      <h3>Phil Siers</h3>
+      <h4>Non-Executive Director</h4>
+      <p>Former Chief Commercial Officer, Betfred Group. Former Managing Director of Totepool. Previously MD of SIS's Licensed Betting Office Division. Deep expertise in betting operations, media rights, and racing commercials.</p>
+    </div>
+  </div>
+
+  <div class="cards-grid cards-grid-2" style="margin-top: 16px;">
+    <div class="card">
+      <span class="tag tag-green">Independent NED — Incoming</span>
+      <h3>[Name Redacted] *</h3>
+      <p>One of Britain's most recognised business journalists. Former Business Editor at a national broadcaster. Editor-at-Large at a leading national broadsheet. Presented a flagship business programme on a major news channel. Serving director of a prominent Jockey Club racecourse. Extensive NED experience including chairing remuneration committees. Economics degree; multiple honorary doctorates.</p>
+    </div>
+    <div class="card">
+      <span class="tag tag-green">Independent NED — Incoming</span>
+      <h3>[Name Redacted] *</h3>
+      <p>Director of a specialist asset finance business within a leading racing industry banking group. Long-standing committee member at a Jockey Club racecourse. Former senior leadership in commercial banking across East England at a major UK clearing bank. Expertise in financial services governance, risk oversight, compliance, and regulated stakeholder environments.</p>
+    </div>
+  </div>
+
+  <p style="font-family: var(--font-body); font-size: 11px; color: var(--text-muted); margin-top: 14px; font-style: italic;">* Names redacted at the request of the individuals pending formal appointment. Full identities and completed suitability questionnaires have been provided to the BHA as part of the licence application.</p>
+
+  <div class="callout-light" style="margin-top: 14px;">
+    <div class="callout-label">Governance Transition</div>
+    <p>Independent Chair recruitment underway. Target: independent majority at board level within three months. John Holmes transitions to non-voting Board Observer (Shareholder Representative). The Board retains full decision-making authority at all times.</p>
+  </div>
+
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+<!-- ============================================
+     SLIDE 5 — BUSINESS MODEL (Pattern E — Dark)
+     ============================================ -->
+<div class="slide slide-dark-content" id="slide-5">
+  <div class="slide-number">04</div>
+  <h2>Business Model</h2>
+  <div class="sub-header">Funded from day one — two media rights deals ready</div>
+
+  <p>GMRL's financial model is built on media rights income as the primary revenue stream. Two competitive offers are in hand from established media rights counterparties, either of which delivers a self-sustaining model from the first fixture. GMRL holds a secured lease from the freeholder — the venue, its assets, and the operating infrastructure are in place.</p>
+
+  <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr); margin-top: 24px;">
+    <div class="stat-block-light">
+      <div class="stat-number">2</div>
+      <div class="stat-label">Competitive media rights<br>offers in hand</div>
+    </div>
+    <div class="stat-block-light">
+      <div class="stat-number">Day 1</div>
+      <div class="stat-label">Cash-positive from<br>first fixture</div>
+    </div>
+    <div class="stat-block-light">
+      <div class="stat-number">Secured</div>
+      <div class="stat-label">Lease from freeholder<br>for venue &amp; operations</div>
+    </div>
+  </div>
+
+  <div class="two-col" style="margin-top: 24px;">
+    <div>
+      <div class="card-dark">
+        <h3>Revenue Model</h3>
+        <p>Media rights income flows directly to GMRL as the licensed operator. Both offers include guaranteed minimum payments per fixture, multi-year terms, and production cost coverage. Limited direct staff for racing operations. Revenue supports the wider venue ecosystem — F&B, hospitality, events, and community.</p>
+      </div>
+    </div>
+    <div>
+      <div class="card-dark">
+        <h3>Operating Structure</h3>
+        <p>GMRL leases the racecourse from the freeholder (CCRL) under a secured agreement. No legacy debt. No assumed liabilities from any prior entity. The operating cost base is lean — racing staffing is provided through the existing management company (CCM), with F&amp;B and events run separately through Chelmsford City Entertainment.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout" style="margin-top: 24px; background: rgba(247,244,235,0.06); border-left: 4px solid var(--copper);">
+    <div class="callout-label">Long-Term Financial Support</div>
+    <p style="color: var(--cream);">A major London-based investment fund, authorised and regulated by the Financial Conduct Authority, has executed Heads of Terms for the purpose of providing long-term financing for the racecourse site and its continued operation as a racing and events venue. The fund has written directly to the BHA in support of the licence application. *</p>
+    <p style="color: var(--green-tint); font-size: 11px; margin-top: 8px; font-style: italic;">* Fund name redacted for commercial confidentiality. Full details and the fund's letter of support have been provided to the BHA.</p>
+  </div>
+
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+<!-- ============================================
+     SLIDE 6 — TEAM & ACHIEVEMENTS (Pattern D)
+     ============================================ -->
+<div class="slide slide-content" id="slide-6">
+  <div class="slide-number">05</div>
+  <h2>The Team &amp; Their Achievements</h2>
+  <div class="sub-header">A decade of results — delivered by the people who remain in place</div>
+
+  <p>GMRL has retained the entire operational team that built Chelmsford City Racecourse into Britain's best-attended all-weather track. These are the people behind every achievement listed below — and they are ready to race.</p>
+
+  <div class="two-col" style="margin-top: 16px;">
+    <div>
+      <div class="growth-item">
+        <h4>Racing Programme</h4>
+        <p>30+ individual Group 1 and Classic winners have raced at the venue. Home to the Queen Charlotte Fillies' Stakes (GB's most valuable Listed race, £100,000, established with royal approval) and the Cardinal Stakes — the UK's most valuable Conditions race, with a direct "win and you're in" pathway to Churchill Downs on Kentucky Derby Day. Broadcast on ITV1 to 500,000 viewers.</p>
+      </div>
+      <div class="growth-item">
+        <h4>International Recognition</h4>
+        <p>Wesley Ward — the most successful American trainer in Royal Ascot history — chose Chelmsford as his UK base in 2022 and 2023, shipping five horses direct from Indianapolis. Mishriff galloped at Chelmsford before winning the inaugural Saudi Cup ($20m). Japanese Racing Association partnership established.</p>
+      </div>
+      <div class="growth-item">
+        <h4>Industry Awards</h4>
+        <p>Four RCA Showcase Awards in 2024 — joint-most in British racing. Top 10 of all 59 UK racecourses for raceday experience (Visit England &amp; RCA). Warmest Welcome Excellence Award. Spotless and Sparkling Accolade (consecutive years). Nominated for Best Raceday (Good Friday).</p>
+      </div>
+    </div>
+    <div>
+      <div class="growth-item">
+        <h4>Community Impact</h4>
+        <p>Over 200 local charities and community groups supported annually. Major COVID-19 vaccination centre — over 1 million vaccinations delivered. Pioneered on-site jockey vaccinations. Autism in Racing programme (finalist, RCA Diversity &amp; Inclusion Award). Remembrance Raceday. Racing to School partnership reaching 180+ children.</p>
+      </div>
+      <div class="growth-item">
+        <h4>Attendance &amp; Experience</h4>
+        <p>Ranked #1 for average attendance among all six UK all-weather racecourses in both 2024 and 2025. Record Good Friday crowd of 9,000 with £265,000 prize money — the second-highest attendance for an all-weather raceday in UK history. Over 80,000 attendees in the first year alone.</p>
+      </div>
+      <div class="growth-item">
+        <h4>Infrastructure</h4>
+        <p>Grandstand shortlisted for architectural award. UK's first floodlit turf track (£2.5m+ investment, 30,000 tonnes of materials). Polytrack surface investment of £600,000+. Planning in place for 400-stable training centre with all-weather and turf gallops.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout-light" style="margin-top: 8px;">
+    <div class="callout-label">The Team Behind the Results</div>
+    <p>Every achievement on this page was delivered by the same team that GMRL has retained in full. The operational staff, the racing team, the ground staff, the commercial and events teams — they are all in place. GMRL is not starting from scratch. It is continuing the work of a proven team under new, independently governed leadership.</p>
+  </div>
+
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+<!-- ============================================
+     SLIDE 7 — BENEFITS TO GLEL CREDITORS (Pattern D)
+     ============================================ -->
+<div class="slide slide-content" id="slide-7">
+  <div class="slide-number">06</div>
+  <h2>Benefits to GLEL Creditors</h2>
+  <div class="sub-header">Why racing at Chelmsford protects creditor interests</div>
+
+  <p>The majority of GLEL's debt is secured against land within the wider estate. Protecting and realising the value of that land is the single most important priority for creditors. A functioning racecourse directly supports that objective.</p>
+
+  <div class="cards-grid cards-grid-2" style="margin-top: 24px;">
+    <div class="card">
+      <h3>Land Values</h3>
+      <p>The principal creditor exposure relates to development land with significant planning consent. A functioning, active racecourse underpins the value of the surrounding estate. A dark venue — with no racing, no footfall, and no commercial activity — erodes land values and undermines the recovery position for all creditors.</p>
+    </div>
+    <div class="card">
+      <h3>Aligned Interests</h3>
+      <p>The Holmes family are themselves significant creditors in the GLEL administration. They are not parties who extracted money from the business — they are the people who invested in it. Their interests are directly aligned with all other creditors in maximising recovery from the estate.</p>
+    </div>
+  </div>
+
+  <div class="cards-grid cards-grid-2" style="margin-top: 16px;">
+    <div class="card">
+      <h3>Supporting the Process</h3>
+      <p>Administration is a statutory process designed by Parliament to protect creditors and rescue viable businesses. Licensing GMRL to operate racing supports that process by maintaining commercial activity at the venue. A licensed operator generating revenue at Chelmsford is the best possible backdrop for the administration to achieve its objectives.</p>
+    </div>
+    <div class="card">
+      <h3>The Alternative</h3>
+      <p>Without a licensed racing operator, the racecourse sits dark. No media rights revenue. No racing-driven footfall. No commercial activity to sustain the wider estate. An empty racecourse does not improve the creditor position — it undermines it. Licensing GMRL is the most direct route to protecting creditor recovery.</p>
+    </div>
+  </div>
+
+  <div class="callout-light" style="margin-top: 20px;">
+    <div class="callout-label">Key Point</div>
+    <p>Granting GMRL a licence is the single most effective step available to protect creditor interests. A functioning racecourse generates the activity, revenue, and commercial momentum that sustains land values across the estate. Without racing, the creditor position deteriorates — land values erode, commercial activity ceases, and the recovery prospects for all parties diminish.</p>
+  </div>
+
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+<!-- ============================================
+     SLIDE 8 — THE FUTURE OF RACING (Pattern E)
+     ============================================ -->
+<div class="slide slide-dark-content" id="slide-8">
+  <div class="slide-number">07</div>
+  <h2>The Future of Racing at Chelmsford</h2>
+  <div class="sub-header">Why licensing GMRL is the right outcome for the sport</div>
+
+  <p style="max-width: 900px;">GMRL is not a continuation of the past — it is the solution. A new entity, with new governance, new funding, and a secured lease. GLEL's administration is a historical fact that exists regardless of who operates Chelmsford going forward. The question is not whether that history looks uncomfortable, but what outcome best serves the racecourse, the sport, creditors, and the public.</p>
+
+  <div class="cards-grid cards-grid-3" style="margin-top: 28px;">
+    <div class="card-dark">
+      <h3>New Entity</h3>
+      <p>Separately incorporated. Own funding arrangements. Two media rights deals ready. No legacy debt. No assumed liabilities from any prior entity. Clean corporate structure with a secured lease from the freeholder.</p>
+    </div>
+    <div class="card-dark">
+      <h3>New Governance</h3>
+      <p>Two independent non-executive directors appointed. Independent Chair recruitment underway. Founder transitions to non-voting observer role. Independent majority within three months. A board built for regulatory confidence.</p>
+    </div>
+    <div class="card-dark">
+      <h3>Proven Track Record</h3>
+      <p>The people behind GMRL invested £30 million, distributed £40 million in prize money, attracted 17 Group 1 winners, and built the best-attended all-weather track in Britain. This is the team that delivered Chelmsford's achievements.</p>
+    </div>
+  </div>
+
+  <div style="margin-top: 28px;">
+    <div class="callout" style="background: rgba(247,244,235,0.06); border-left: 4px solid var(--copper);">
+      <div class="callout-label">Assessment on Individual Merits</div>
+      <p style="color: var(--cream); margin-bottom: 10px;">The BHA's own Suitability Policy (paragraph 6) requires applications to be considered on their individual merits. Paragraph 10 says the BHA should "look to support the racecourse involved in working through the issue with minimum possible impact on the running of its day to day business and the sport as a whole."</p>
+      <p style="color: var(--green-tint); font-size: 13px;">GMRL meets that test. It is a financially viable, independently governed entity ready to operate racing at a venue the BHA recognises as being of great value to the sport. Licensing GMRL protects creditors, preserves fixtures, and keeps racing at Britain's best-attended all-weather track.</p>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+<!-- ============================================
+     SLIDE 9 — GROWTH STRATEGY (Pattern D)
+     ============================================ -->
+<div class="slide slide-content" id="slide-9">
+  <div class="slide-number">08</div>
+  <h2>Growth Strategy</h2>
+  <div class="sub-header">Building on a proven platform</div>
+
+  <div class="two-col" style="margin-top: 16px;">
+    <div>
+      <div class="growth-item">
+        <h4>Fixture Acquisition</h4>
+        <p>Pathway to acquiring additional all-weather fixtures, with Kempton Park a strategic target. Coordinated scheduling across the all-weather programme to maximise field sizes and betting turnover.</p>
+      </div>
+      <div class="growth-item">
+        <h4>Turf Racing</h4>
+        <p>Second application for turf fixtures. The venue has the infrastructure and land to support a dual-surface programme — unlocking a new revenue stream and broader appeal to owners and trainers.</p>
+      </div>
+      <div class="growth-item">
+        <h4>Sponsorship</h4>
+        <p>Target: 2–3 headline sponsors. The venue's attendance record, community reach, and broadcast profile make it an attractive commercial proposition for brands seeking racing exposure.</p>
+      </div>
+    </div>
+    <div>
+      <div class="growth-item">
+        <h4>Betting Turnover</h4>
+        <p>Growing field sizes through better scheduling and an additional 8+ runners per fixture. Headline horses through strategic race conditions. Larger fields drive higher betting turnover — the economic engine of the fixture.</p>
+      </div>
+      <div class="growth-item">
+        <h4>Broadcast & Distribution</h4>
+        <p>Potential inclusion in prime-time broadcast series. Access to the All-Weather Bonus Scheme. International distribution partnerships to expand Chelmsford's reach beyond the domestic market.</p>
+      </div>
+      <div class="growth-item">
+        <h4>Community & Events</h4>
+        <p>Expanding the 365-day venue model. Strengthening links with 200+ local charities. Developing the conference and events programme alongside racing — the venue is far more than a racetrack.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+<!-- ============================================
+     SLIDE 10 — CLOSE / NEXT STEPS (Pattern A)
+     ============================================ -->
+<div class="slide slide-dark" id="slide-10">
+  <div class="accent-line"></div>
+  <h2>The Case for GMRL</h2>
+  <h1 style="font-size: 42px; max-width: 800px; line-height: 1.25;">Racing at Chelmsford City Racecourse</h1>
+  <div class="accent-line"></div>
+
+  <div style="text-align: left; max-width: 640px; margin-top: 20px;">
+    <ul class="slide-bullets dark">
+      <li>A new entity with independent governance, secured funding, and two media rights deals ready to sign — viable from the first fixture</li>
+      <li>The only applicant for the licence. The business model is sound, the governance is in place, and the venue is ready to race</li>
+      <li>Licensing GMRL protects creditor interests, preserves fixtures for the sport, and keeps racing at Britain's best-attended all-weather track</li>
+      <li>The Holmes family want racing at Chelmsford — their interests as freeholder, as creditors, and as investors in the sport are fully aligned with that outcome</li>
+    </ul>
+  </div>
+
+  <div style="margin-top: 32px; text-align: center;">
+    <p style="font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--copper);">Contact</p>
+    <p style="font-size: 15px; color: var(--cream); margin-top: 8px;">Nathan Holmes — Golden Mile Racing Ltd</p>
+    <p style="font-size: 13px; color: var(--green-tint); margin-top: 4px;">Chelmsford City Racecourse, Chelmsford, Essex CM3 1QP</p>
+  </div>
+
+  <div class="slide-footer">
+    <span class="confidential">Strictly Private & Confidential</span>
+    <span class="entity">Golden Mile Racing Ltd</span>
+  </div>
+</div>
+
+</body>
+</html>
